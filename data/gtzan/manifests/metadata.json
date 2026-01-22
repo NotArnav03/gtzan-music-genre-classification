@@ -1,0 +1,1 @@
+{"n_mels":256,"hop_length":256,"n_fft":2048,"sample_rate":22050,"target_duration_s":30,"chunk_duration_s":10,"label_map":{"blues":0,"classical":1,"country":2,"disco":3,"hiphop":4,"jazz":5,"metal":6,"pop":7,"reggae":8,"rock":9},"n_samples":2997}

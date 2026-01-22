@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Data
+*.npy
+*.wav
+*.mp3
+data/gtzan/features/
+
+# Artifacts
+*.pth
+artifacts/
+
+# OS
+.DS_Store
