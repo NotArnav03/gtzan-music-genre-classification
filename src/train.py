@@ -89,9 +89,16 @@ class GTZANFeatureDataset(Dataset):
 
         # auto-detect shape
         sample_path = self.df.loc[0, 'feature_path']
-        if not os.path.isabs(sample_path):
-            sample_path = os.path.join(FEATURE_DIR, sample_path)
+
+        if not os.path.exists(sample_path):
+            # fallback to original feature directory
+            sample_path = os.path.join(
+                r"C:\SoundModel\data\gtzan\features",
+                os.path.basename(sample_path)
+            )
+
         feat = np.load(sample_path)
+
 
         t, f = feat.shape
         self.target_frames = int(target_frames) if target_frames is not None else t
@@ -170,8 +177,12 @@ class GTZANFeatureDataset(Dataset):
         label_raw = row['label']
         label = self.label_map[label_raw]
 
-        if not os.path.isabs(path):
-            path = os.path.join(FEATURE_DIR, path)
+        if not os.path.exists(path):
+            path = os.path.join(
+                r"C:\SoundModel\data\gtzan\features",
+                os.path.basename(path)
+            )
+
         feat = np.load(path).astype(np.float32)  # shape (time, n_mels)
 
         feat = self._pad_or_truncate(feat)

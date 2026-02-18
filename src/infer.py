@@ -1,7 +1,7 @@
 import os
 import torch
 import numpy as np
-from train_gtzan_ultimate import UltimateNet
+from train import UltimateNet  # Fixed import
 
 # ---------------- CONFIG ----------------
 CHECKPOINT_PATH = r"C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth"

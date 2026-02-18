@@ -10,7 +10,6 @@ data/gtzan/features/
 
 # Artifacts
 *.pth
-artifacts/
 
 # OS
 .DS_Store

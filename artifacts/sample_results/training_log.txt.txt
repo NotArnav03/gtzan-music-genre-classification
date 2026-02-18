@@ -1,0 +1,1003 @@
+gtzanUltimateEpochHistory
+
+C:\SoundModel\scripts>python train_gtzan_ultimate.py
+✅ Fixed manifest saved to: C:\SoundModel\data\gtzan\manifests\train_manifest_fixed.csv
+✅ Fixed manifest saved to: C:\SoundModel\data\gtzan\manifests\val_manifest_fixed.csv
+[dataset] Global mean=0.000000, std=1.000000 from 599 samples
+Device=cpu, AMP=False, Train samples=2397, Val samples=300, Classes=10
+Feature shape (T x F) = (862 x 256)
+C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\nn\modules\transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(
+Model parameters: total=14,307,019, trainable=14,307,019
+Train E1:   0%|                                                                                 | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [1/120]  Time: 777.3s  LR: 5.63918e-05
+Train -> Loss: 2.0176, Acc: 27.37%, Prec:0.233, Rec:0.273, F1:0.230
+Val   -> Loss: 2.2000, Acc: 21.00%, Prec:0.294, Rec:0.210, F1:0.176
+✅ Saved best model (val_acc=21.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E2:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [2/120]  Time: 678.2s  LR: 0.000104448
+Train -> Loss: 1.6915, Acc: 38.21%, Prec:0.363, Rec:0.382, F1:0.364
+Val   -> Loss: 2.1585, Acc: 29.00%, Prec:0.497, Rec:0.290, F1:0.229
+✅ Saved best model (val_acc=29.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E3:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [3/120]  Time: 682.6s  LR: 0.000180885
+Train -> Loss: 1.6240, Acc: 44.39%, Prec:0.433, Rec:0.444, F1:0.435
+Val   -> Loss: 1.7025, Acc: 49.33%, Prec:0.581, Rec:0.493, F1:0.461
+✅ Saved best model (val_acc=49.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E4:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [4/120]  Time: 696.6s  LR: 0.000280484
+Train -> Loss: 1.5641, Acc: 41.09%, Prec:0.404, Rec:0.411, F1:0.406
+Val   -> Loss: 1.6785, Acc: 49.67%, Prec:0.617, Rec:0.497, F1:0.469
+✅ Saved best model (val_acc=49.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E5:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [5/120]  Time: 988.0s  LR: 0.000396442
+Train -> Loss: 1.6064, Acc: 44.56%, Prec:0.438, Rec:0.445, F1:0.440
+Val   -> Loss: 1.7346, Acc: 46.33%, Prec:0.534, Rec:0.463, F1:0.419
+Train E6:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [6/120]  Time: 861.0s  LR: 0.000520839
+Train -> Loss: 1.5953, Acc: 47.10%, Prec:0.467, Rec:0.471, F1:0.468
+Val   -> Loss: 1.6564, Acc: 50.67%, Prec:0.600, Rec:0.507, F1:0.443
+✅ Saved best model (val_acc=50.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E7:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [7/120]  Time: 913.3s  LR: 0.000645178
+Train -> Loss: 1.5455, Acc: 51.44%, Prec:0.507, Rec:0.514, F1:0.508
+Val   -> Loss: 1.5832, Acc: 56.33%, Prec:0.598, Rec:0.563, F1:0.523
+✅ Saved best model (val_acc=56.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E8:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [8/120]  Time: 906.5s  LR: 0.000760968
+Train -> Loss: 1.5764, Acc: 43.18%, Prec:0.429, Rec:0.432, F1:0.429
+Val   -> Loss: 1.5091, Acc: 55.33%, Prec:0.597, Rec:0.553, F1:0.525
+Train E9:   0%|                                                                                              | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [9/120]  Time: 950.4s  LR: 0.0008603
+Train -> Loss: 1.5281, Acc: 47.18%, Prec:0.468, Rec:0.472, F1:0.467
+Val   -> Loss: 1.4892, Acc: 58.00%, Prec:0.589, Rec:0.580, F1:0.538
+✅ Saved best model (val_acc=58.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E10:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [10/120]  Time: 1133.2s  LR: 0.000936389
+Train -> Loss: 1.5249, Acc: 46.02%, Prec:0.454, Rec:0.460, F1:0.454
+Val   -> Loss: 1.3732, Acc: 59.00%, Prec:0.606, Rec:0.590, F1:0.570
+✅ Saved best model (val_acc=59.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E11:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [11/120]  Time: 1188.1s  LR: 0.00098404
+Train -> Loss: 1.5204, Acc: 51.44%, Prec:0.504, Rec:0.514, F1:0.507
+Val   -> Loss: 1.6593, Acc: 53.00%, Prec:0.601, Rec:0.530, F1:0.480
+Train E12:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [12/120]  Time: 13434.2s  LR: 0.001
+Train -> Loss: 1.5932, Acc: 48.35%, Prec:0.476, Rec:0.484, F1:0.478
+Val   -> Loss: 1.3617, Acc: 61.67%, Prec:0.625, Rec:0.617, F1:0.562
+✅ Saved best model (val_acc=61.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E13:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [13/120]  Time: 1177.6s  LR: 0.000999783
+Train -> Loss: 1.5825, Acc: 45.35%, Prec:0.445, Rec:0.454, F1:0.446
+Val   -> Loss: 1.4104, Acc: 63.33%, Prec:0.682, Rec:0.633, F1:0.611
+✅ Saved best model (val_acc=63.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E14:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [14/120]  Time: 1054.0s  LR: 0.000999143
+Train -> Loss: 1.5370, Acc: 49.69%, Prec:0.488, Rec:0.497, F1:0.489
+Val   -> Loss: 1.3503, Acc: 66.67%, Prec:0.690, Rec:0.667, F1:0.636
+✅ Saved best model (val_acc=66.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E15:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [15/120]  Time: 1425.1s  LR: 0.000998081
+Train -> Loss: 1.4936, Acc: 46.18%, Prec:0.459, Rec:0.462, F1:0.459
+Val   -> Loss: 1.4821, Acc: 60.00%, Prec:0.667, Rec:0.600, F1:0.526
+Train E16:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [16/120]  Time: 1478.2s  LR: 0.000996598
+Train -> Loss: 1.4634, Acc: 54.90%, Prec:0.546, Rec:0.549, F1:0.544
+Val   -> Loss: 1.3724, Acc: 65.33%, Prec:0.717, Rec:0.653, F1:0.637
+Train E17:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [17/120]  Time: 1443.2s  LR: 0.000994695
+Train -> Loss: 1.4384, Acc: 50.81%, Prec:0.507, Rec:0.508, F1:0.506
+Val   -> Loss: 1.5068, Acc: 65.33%, Prec:0.672, Rec:0.653, F1:0.611
+Train E18:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [18/120]  Time: 981.7s  LR: 0.000992373
+Train -> Loss: 1.3600, Acc: 55.90%, Prec:0.557, Rec:0.559, F1:0.552
+Val   -> Loss: 1.2047, Acc: 71.00%, Prec:0.742, Rec:0.710, F1:0.694
+✅ Saved best model (val_acc=71.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E19:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [19/120]  Time: 1358.6s  LR: 0.000989635
+Train -> Loss: 1.3311, Acc: 61.28%, Prec:0.610, Rec:0.613, F1:0.608
+Val   -> Loss: 1.1871, Acc: 73.00%, Prec:0.750, Rec:0.730, F1:0.714
+✅ Saved best model (val_acc=73.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E20:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [20/120]  Time: 1558.7s  LR: 0.000986483
+Train -> Loss: 1.3253, Acc: 60.41%, Prec:0.599, Rec:0.604, F1:0.599
+Val   -> Loss: 1.1784, Acc: 74.67%, Prec:0.773, Rec:0.747, F1:0.739
+✅ Saved best model (val_acc=74.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E21:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [21/120]  Time: 1480.2s  LR: 0.00098292
+Train -> Loss: 1.3400, Acc: 58.11%, Prec:0.578, Rec:0.581, F1:0.578
+Val   -> Loss: 1.0706, Acc: 80.33%, Prec:0.812, Rec:0.803, F1:0.801
+✅ Saved best model (val_acc=80.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E22:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [22/120]  Time: 1489.9s  LR: 0.000978948
+Train -> Loss: 1.2660, Acc: 52.94%, Prec:0.527, Rec:0.530, F1:0.527
+Val   -> Loss: 1.1218, Acc: 77.67%, Prec:0.796, Rec:0.777, F1:0.771
+Train E23:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [23/120]  Time: 973.5s  LR: 0.00097457
+Train -> Loss: 1.3116, Acc: 61.91%, Prec:0.617, Rec:0.619, F1:0.617
+Val   -> Loss: 1.1772, Acc: 75.67%, Prec:0.763, Rec:0.757, F1:0.742
+Train E24:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [24/120]  Time: 842.7s  LR: 0.000969792
+Train -> Loss: 1.2663, Acc: 63.62%, Prec:0.635, Rec:0.636, F1:0.633
+Val   -> Loss: 1.2309, Acc: 70.67%, Prec:0.729, Rec:0.707, F1:0.691
+Train E25:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [25/120]  Time: 852.8s  LR: 0.000964616
+Train -> Loss: 1.1543, Acc: 63.66%, Prec:0.634, Rec:0.637, F1:0.634
+Val   -> Loss: 1.1686, Acc: 77.00%, Prec:0.799, Rec:0.770, F1:0.751
+Train E26:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [26/120]  Time: 849.5s  LR: 0.000959048
+Train -> Loss: 1.2013, Acc: 59.62%, Prec:0.593, Rec:0.596, F1:0.593
+Val   -> Loss: 1.0312, Acc: 81.67%, Prec:0.821, Rec:0.817, F1:0.808
+✅ Saved best model (val_acc=81.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E27:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [27/120]  Time: 846.8s  LR: 0.000953091
+Train -> Loss: 1.1776, Acc: 61.66%, Prec:0.615, Rec:0.617, F1:0.615
+Val   -> Loss: 1.0069, Acc: 80.67%, Prec:0.806, Rec:0.807, F1:0.804
+Train E28:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [28/120]  Time: 848.4s  LR: 0.000946751
+Train -> Loss: 1.1249, Acc: 68.09%, Prec:0.680, Rec:0.681, F1:0.678
+Val   -> Loss: 1.1233, Acc: 76.00%, Prec:0.789, Rec:0.760, F1:0.753
+Train E29:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [29/120]  Time: 870.7s  LR: 0.000940033
+Train -> Loss: 1.2179, Acc: 59.91%, Prec:0.597, Rec:0.599, F1:0.597
+Val   -> Loss: 1.1107, Acc: 80.00%, Prec:0.820, Rec:0.800, F1:0.791
+Train E30:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [30/120]  Time: 850.3s  LR: 0.000932943
+Train -> Loss: 1.1869, Acc: 65.04%, Prec:0.647, Rec:0.650, F1:0.647
+Val   -> Loss: 1.1443, Acc: 78.33%, Prec:0.796, Rec:0.783, F1:0.779
+Train E31:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [31/120]  Time: 864.4s  LR: 0.000925486
+Train -> Loss: 1.1352, Acc: 64.37%, Prec:0.642, Rec:0.644, F1:0.642
+Val   -> Loss: 1.0308, Acc: 80.33%, Prec:0.810, Rec:0.803, F1:0.800
+Train E32:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [32/120]  Time: 865.3s  LR: 0.00091767
+Train -> Loss: 1.1856, Acc: 70.00%, Prec:0.697, Rec:0.700, F1:0.697
+Val   -> Loss: 1.0410, Acc: 80.00%, Prec:0.827, Rec:0.800, F1:0.790
+Train E33:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [33/120]  Time: 861.1s  LR: 0.000909501
+Train -> Loss: 1.1331, Acc: 70.13%, Prec:0.699, Rec:0.701, F1:0.699
+Val   -> Loss: 1.1699, Acc: 73.67%, Prec:0.761, Rec:0.737, F1:0.722
+Train E34:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [34/120]  Time: 871.5s  LR: 0.000900985
+Train -> Loss: 1.1514, Acc: 66.50%, Prec:0.664, Rec:0.665, F1:0.663
+Val   -> Loss: 1.2977, Acc: 70.67%, Prec:0.748, Rec:0.707, F1:0.679
+Train E35:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [35/120]  Time: 873.5s  LR: 0.000892131
+Train -> Loss: 1.1318, Acc: 63.20%, Prec:0.631, Rec:0.632, F1:0.630
+Val   -> Loss: 1.1089, Acc: 78.67%, Prec:0.800, Rec:0.787, F1:0.779
+Train E36:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [36/120]  Time: 864.2s  LR: 0.000882944
+Train -> Loss: 1.1030, Acc: 66.54%, Prec:0.666, Rec:0.665, F1:0.665
+Val   -> Loss: 0.9818, Acc: 82.67%, Prec:0.830, Rec:0.827, F1:0.824
+✅ Saved best model (val_acc=82.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E37:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [37/120]  Time: 870.1s  LR: 0.000873434
+Train -> Loss: 1.1310, Acc: 60.87%, Prec:0.607, Rec:0.609, F1:0.607
+Val   -> Loss: 1.1041, Acc: 76.33%, Prec:0.794, Rec:0.763, F1:0.759
+Train E38:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [38/120]  Time: 879.2s  LR: 0.000863608
+Train -> Loss: 1.1231, Acc: 63.62%, Prec:0.634, Rec:0.636, F1:0.635
+Val   -> Loss: 1.1630, Acc: 78.00%, Prec:0.803, Rec:0.780, F1:0.769
+Train E39:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [39/120]  Time: 886.3s  LR: 0.000853475
+Train -> Loss: 1.1127, Acc: 66.33%, Prec:0.661, Rec:0.663, F1:0.662
+Val   -> Loss: 1.1565, Acc: 75.00%, Prec:0.787, Rec:0.750, F1:0.743
+Train E40:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [40/120]  Time: 881.4s  LR: 0.000843043
+Train -> Loss: 1.0759, Acc: 62.16%, Prec:0.622, Rec:0.622, F1:0.621
+Val   -> Loss: 0.9825, Acc: 81.67%, Prec:0.834, Rec:0.817, F1:0.815
+Train E41:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [41/120]  Time: 879.2s  LR: 0.00083232
+Train -> Loss: 1.0188, Acc: 68.59%, Prec:0.687, Rec:0.686, F1:0.686
+Val   -> Loss: 1.1168, Acc: 79.33%, Prec:0.826, Rec:0.793, F1:0.789
+Train E42:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [42/120]  Time: 888.0s  LR: 0.000821317
+Train -> Loss: 1.0661, Acc: 67.50%, Prec:0.674, Rec:0.675, F1:0.674
+Val   -> Loss: 0.8942, Acc: 86.00%, Prec:0.868, Rec:0.860, F1:0.859
+✅ Saved best model (val_acc=86.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E43:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [43/120]  Time: 895.1s  LR: 0.000810042
+Train -> Loss: 1.1033, Acc: 60.78%, Prec:0.608, Rec:0.608, F1:0.608
+Val   -> Loss: 0.9257, Acc: 86.00%, Prec:0.868, Rec:0.860, F1:0.856
+Train E44:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [44/120]  Time: 899.7s  LR: 0.000798504
+Train -> Loss: 1.0615, Acc: 66.37%, Prec:0.663, Rec:0.664, F1:0.663
+Val   -> Loss: 1.0649, Acc: 81.00%, Prec:0.832, Rec:0.810, F1:0.804
+Train E45:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [45/120]  Time: 893.9s  LR: 0.000786715
+Train -> Loss: 1.0856, Acc: 68.96%, Prec:0.689, Rec:0.690, F1:0.689
+Val   -> Loss: 0.9371, Acc: 85.00%, Prec:0.856, Rec:0.850, F1:0.849
+Train E46:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [46/120]  Time: 896.8s  LR: 0.000774683
+Train -> Loss: 1.0750, Acc: 68.17%, Prec:0.682, Rec:0.682, F1:0.681
+Val   -> Loss: 0.8778, Acc: 86.67%, Prec:0.879, Rec:0.867, F1:0.867
+✅ Saved best model (val_acc=86.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E47:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [47/120]  Time: 907.5s  LR: 0.000762418
+Train -> Loss: 0.8899, Acc: 73.80%, Prec:0.739, Rec:0.738, F1:0.738
+Val   -> Loss: 0.9454, Acc: 84.00%, Prec:0.848, Rec:0.840, F1:0.833
+Train E48:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [48/120]  Time: 900.6s  LR: 0.000749932
+Train -> Loss: 1.0206, Acc: 72.80%, Prec:0.728, Rec:0.728, F1:0.728
+Val   -> Loss: 0.9748, Acc: 83.00%, Prec:0.845, Rec:0.830, F1:0.830
+Train E49:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [49/120]  Time: 911.2s  LR: 0.000737235
+Train -> Loss: 0.9626, Acc: 73.38%, Prec:0.734, Rec:0.734, F1:0.734
+Val   -> Loss: 0.8614, Acc: 87.00%, Prec:0.872, Rec:0.870, F1:0.867
+✅ Saved best model (val_acc=87.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E50:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [50/120]  Time: 912.0s  LR: 0.000724337
+Train -> Loss: 0.9524, Acc: 75.26%, Prec:0.753, Rec:0.753, F1:0.753
+Val   -> Loss: 0.9548, Acc: 84.67%, Prec:0.855, Rec:0.847, F1:0.845
+Train E51:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [51/120]  Time: 903.7s  LR: 0.000711249
+Train -> Loss: 0.9685, Acc: 76.05%, Prec:0.761, Rec:0.761, F1:0.760
+Val   -> Loss: 0.8751, Acc: 87.33%, Prec:0.881, Rec:0.873, F1:0.871
+✅ Saved best model (val_acc=87.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E52:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [52/120]  Time: 885.4s  LR: 0.000697983
+Train -> Loss: 0.9086, Acc: 80.23%, Prec:0.802, Rec:0.802, F1:0.802
+Val   -> Loss: 0.8987, Acc: 87.67%, Prec:0.885, Rec:0.877, F1:0.874
+✅ Saved best model (val_acc=87.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E53:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [53/120]  Time: 1334.0s  LR: 0.000684549
+Train -> Loss: 0.9303, Acc: 66.37%, Prec:0.663, Rec:0.664, F1:0.663
+Val   -> Loss: 0.9150, Acc: 86.33%, Prec:0.875, Rec:0.863, F1:0.864
+Train E54:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [54/120]  Time: 1585.9s  LR: 0.000670959
+Train -> Loss: 1.0009, Acc: 68.75%, Prec:0.689, Rec:0.688, F1:0.688
+Val   -> Loss: 0.8759, Acc: 88.33%, Prec:0.888, Rec:0.883, F1:0.882
+✅ Saved best model (val_acc=88.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E55:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [55/120]  Time: 1597.4s  LR: 0.000657225
+Train -> Loss: 0.9530, Acc: 69.46%, Prec:0.695, Rec:0.695, F1:0.695
+Val   -> Loss: 0.8797, Acc: 87.33%, Prec:0.880, Rec:0.873, F1:0.873
+Train E56:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [56/120]  Time: 1610.4s  LR: 0.000643359
+Train -> Loss: 0.8618, Acc: 76.26%, Prec:0.763, Rec:0.763, F1:0.763
+Val   -> Loss: 1.0656, Acc: 81.33%, Prec:0.835, Rec:0.813, F1:0.815
+Train E57:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [57/120]  Time: 1206.7s  LR: 0.000629371
+Train -> Loss: 0.8809, Acc: 77.81%, Prec:0.778, Rec:0.778, F1:0.778
+Val   -> Loss: 0.8408, Acc: 90.33%, Prec:0.907, Rec:0.903, F1:0.902
+✅ Saved best model (val_acc=90.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E58:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [58/120]  Time: 939.0s  LR: 0.000615273
+Train -> Loss: 0.8273, Acc: 68.00%, Prec:0.681, Rec:0.680, F1:0.680
+Val   -> Loss: 0.8582, Acc: 88.67%, Prec:0.895, Rec:0.887, F1:0.885
+Train E59:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [59/120]  Time: 1362.0s  LR: 0.000601078
+Train -> Loss: 0.9783, Acc: 76.10%, Prec:0.762, Rec:0.761, F1:0.762
+Val   -> Loss: 0.8404, Acc: 89.67%, Prec:0.902, Rec:0.897, F1:0.894
+Train E60:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [60/120]  Time: 1642.2s  LR: 0.000586798
+Train -> Loss: 0.8576, Acc: 77.72%, Prec:0.778, Rec:0.777, F1:0.778
+Val   -> Loss: 0.8250, Acc: 90.33%, Prec:0.909, Rec:0.903, F1:0.902
+Train E61:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [61/120]  Time: 933.0s  LR: 0.000572445
+Train -> Loss: 0.9608, Acc: 71.59%, Prec:0.716, Rec:0.716, F1:0.716
+Val   -> Loss: 0.8802, Acc: 88.00%, Prec:0.900, Rec:0.880, F1:0.882
+Train E62:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [62/120]  Time: 921.8s  LR: 0.000558031
+Train -> Loss: 0.8989, Acc: 69.88%, Prec:0.699, Rec:0.699, F1:0.699
+Val   -> Loss: 0.7502, Acc: 91.67%, Prec:0.920, Rec:0.917, F1:0.917
+✅ Saved best model (val_acc=91.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E63:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [63/120]  Time: 922.8s  LR: 0.000543567
+Train -> Loss: 0.8902, Acc: 75.39%, Prec:0.754, Rec:0.754, F1:0.754
+Val   -> Loss: 0.7754, Acc: 89.67%, Prec:0.897, Rec:0.897, F1:0.895
+Train E64:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [64/120]  Time: 916.7s  LR: 0.000529067
+Train -> Loss: 0.9704, Acc: 72.59%, Prec:0.726, Rec:0.726, F1:0.726
+Val   -> Loss: 0.8100, Acc: 89.33%, Prec:0.895, Rec:0.893, F1:0.893
+Train E65:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [65/120]  Time: 917.4s  LR: 0.000514543
+Train -> Loss: 0.9735, Acc: 71.17%, Prec:0.713, Rec:0.712, F1:0.712
+Val   -> Loss: 0.8674, Acc: 88.00%, Prec:0.887, Rec:0.880, F1:0.877
+Train E66:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [66/120]  Time: 921.6s  LR: 0.000500006
+Train -> Loss: 0.8737, Acc: 68.04%, Prec:0.681, Rec:0.680, F1:0.681
+Val   -> Loss: 0.7567, Acc: 91.33%, Prec:0.917, Rec:0.913, F1:0.912
+Train E67:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [67/120]  Time: 927.3s  LR: 0.00048547
+Train -> Loss: 0.8082, Acc: 75.47%, Prec:0.755, Rec:0.755, F1:0.755
+Val   -> Loss: 0.7632, Acc: 90.67%, Prec:0.910, Rec:0.907, F1:0.906
+Train E68:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [68/120]  Time: 927.5s  LR: 0.000470946
+Train -> Loss: 0.8591, Acc: 77.43%, Prec:0.774, Rec:0.774, F1:0.774
+Val   -> Loss: 0.7681, Acc: 90.33%, Prec:0.905, Rec:0.903, F1:0.902
+Train E69:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [69/120]  Time: 920.1s  LR: 0.000456446
+Train -> Loss: 0.8855, Acc: 74.55%, Prec:0.746, Rec:0.746, F1:0.746
+Val   -> Loss: 0.7881, Acc: 91.67%, Prec:0.922, Rec:0.917, F1:0.915
+Train E70:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [70/120]  Time: 911.8s  LR: 0.000441984
+Train -> Loss: 0.8702, Acc: 79.64%, Prec:0.797, Rec:0.796, F1:0.796
+Val   -> Loss: 0.7737, Acc: 90.67%, Prec:0.912, Rec:0.907, F1:0.906
+Train E71:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [71/120]  Time: 911.8s  LR: 0.000427571
+Train -> Loss: 0.8730, Acc: 76.97%, Prec:0.770, Rec:0.770, F1:0.770
+Val   -> Loss: 0.7563, Acc: 92.00%, Prec:0.923, Rec:0.920, F1:0.920
+✅ Saved best model (val_acc=92.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E72:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [72/120]  Time: 1296.1s  LR: 0.00041322
+Train -> Loss: 0.8441, Acc: 76.51%, Prec:0.765, Rec:0.765, F1:0.765
+Val   -> Loss: 0.7803, Acc: 89.67%, Prec:0.905, Rec:0.897, F1:0.896
+Train E73:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [73/120]  Time: 1669.1s  LR: 0.000398942
+Train -> Loss: 0.7937, Acc: 81.39%, Prec:0.814, Rec:0.814, F1:0.814
+Val   -> Loss: 0.7959, Acc: 90.67%, Prec:0.910, Rec:0.907, F1:0.906
+Train E74:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [74/120]  Time: 1556.1s  LR: 0.00038475
+Train -> Loss: 0.9076, Acc: 75.97%, Prec:0.760, Rec:0.760, F1:0.760
+Val   -> Loss: 0.7629, Acc: 90.67%, Prec:0.911, Rec:0.907, F1:0.906
+Train E75:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [75/120]  Time: 1621.4s  LR: 0.000370655
+Train -> Loss: 0.8854, Acc: 74.55%, Prec:0.746, Rec:0.746, F1:0.745
+Val   -> Loss: 0.7698, Acc: 92.00%, Prec:0.922, Rec:0.920, F1:0.919
+Train E76:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [76/120]  Time: 1595.3s  LR: 0.00035667
+Train -> Loss: 0.8722, Acc: 79.39%, Prec:0.794, Rec:0.794, F1:0.794
+Val   -> Loss: 0.7437, Acc: 91.33%, Prec:0.916, Rec:0.913, F1:0.912
+Train E77:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [77/120]  Time: 1527.7s  LR: 0.000342807
+Train -> Loss: 0.8718, Acc: 80.27%, Prec:0.803, Rec:0.803, F1:0.803
+Val   -> Loss: 0.7520, Acc: 92.33%, Prec:0.927, Rec:0.923, F1:0.923
+✅ Saved best model (val_acc=92.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E78:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [78/120]  Time: 1275.0s  LR: 0.000329076
+Train -> Loss: 0.8247, Acc: 78.06%, Prec:0.781, Rec:0.781, F1:0.781
+Val   -> Loss: 0.7934, Acc: 89.67%, Prec:0.906, Rec:0.897, F1:0.897
+Train E79:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [79/120]  Time: 912.2s  LR: 0.000315491
+Train -> Loss: 0.7911, Acc: 81.52%, Prec:0.815, Rec:0.815, F1:0.815
+Val   -> Loss: 0.7527, Acc: 91.67%, Prec:0.919, Rec:0.917, F1:0.916
+Train E80:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [80/120]  Time: 925.5s  LR: 0.000302061
+Train -> Loss: 0.8266, Acc: 73.84%, Prec:0.739, Rec:0.738, F1:0.739
+Val   -> Loss: 0.7796, Acc: 90.00%, Prec:0.905, Rec:0.900, F1:0.899
+Train E81:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [81/120]  Time: 923.1s  LR: 0.0002888
+Train -> Loss: 0.7969, Acc: 77.60%, Prec:0.776, Rec:0.776, F1:0.776
+Val   -> Loss: 0.7458, Acc: 93.00%, Prec:0.934, Rec:0.930, F1:0.929
+✅ Saved best model (val_acc=93.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E82:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [82/120]  Time: 919.8s  LR: 0.000275717
+Train -> Loss: 0.8008, Acc: 81.14%, Prec:0.812, Rec:0.811, F1:0.812
+Val   -> Loss: 0.7294, Acc: 93.00%, Prec:0.933, Rec:0.930, F1:0.929
+Train E83:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [83/120]  Time: 922.6s  LR: 0.000262824
+Train -> Loss: 0.7605, Acc: 85.44%, Prec:0.855, Rec:0.854, F1:0.854
+Val   -> Loss: 0.7463, Acc: 93.00%, Prec:0.931, Rec:0.930, F1:0.929
+Train E84:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [84/120]  Time: 908.4s  LR: 0.000250132
+Train -> Loss: 0.9418, Acc: 61.79%, Prec:0.618, Rec:0.618, F1:0.618
+Val   -> Loss: 0.7406, Acc: 92.00%, Prec:0.922, Rec:0.920, F1:0.919
+Train E85:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [85/120]  Time: 915.4s  LR: 0.000237652
+Train -> Loss: 0.8710, Acc: 77.93%, Prec:0.780, Rec:0.779, F1:0.779
+Val   -> Loss: 0.6994, Acc: 94.67%, Prec:0.949, Rec:0.947, F1:0.946
+✅ Saved best model (val_acc=94.67%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E86:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [86/120]  Time: 920.7s  LR: 0.000225393
+Train -> Loss: 0.7919, Acc: 72.97%, Prec:0.730, Rec:0.730, F1:0.730
+Val   -> Loss: 0.7243, Acc: 93.33%, Prec:0.935, Rec:0.933, F1:0.933
+Train E87:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [87/120]  Time: 914.8s  LR: 0.000213368
+Train -> Loss: 0.7559, Acc: 78.26%, Prec:0.783, Rec:0.783, F1:0.783
+Val   -> Loss: 0.7443, Acc: 92.67%, Prec:0.928, Rec:0.927, F1:0.926
+Train E88:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [88/120]  Time: 913.0s  LR: 0.000201585
+Train -> Loss: 0.7655, Acc: 75.72%, Prec:0.757, Rec:0.757, F1:0.757
+Val   -> Loss: 0.7061, Acc: 94.33%, Prec:0.947, Rec:0.943, F1:0.943
+Train E89:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [89/120]  Time: 911.5s  LR: 0.000190054
+Train -> Loss: 0.8010, Acc: 77.76%, Prec:0.778, Rec:0.778, F1:0.778
+Val   -> Loss: 0.7461, Acc: 92.33%, Prec:0.928, Rec:0.923, F1:0.923
+Train E90:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [90/120]  Time: 915.3s  LR: 0.000178786
+Train -> Loss: 0.7378, Acc: 77.85%, Prec:0.779, Rec:0.778, F1:0.778
+Val   -> Loss: 0.7261, Acc: 94.33%, Prec:0.946, Rec:0.943, F1:0.943
+Train E91:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [91/120]  Time: 910.9s  LR: 0.00016779
+Train -> Loss: 0.8161, Acc: 71.55%, Prec:0.715, Rec:0.715, F1:0.715
+Val   -> Loss: 0.7255, Acc: 92.33%, Prec:0.928, Rec:0.923, F1:0.923
+Train E92:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [92/120]  Time: 914.1s  LR: 0.000157075
+Train -> Loss: 0.8049, Acc: 79.81%, Prec:0.798, Rec:0.798, F1:0.798
+Val   -> Loss: 0.7071, Acc: 94.00%, Prec:0.943, Rec:0.940, F1:0.940
+Train E93:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [93/120]  Time: 898.9s  LR: 0.000146651
+Train -> Loss: 0.8233, Acc: 74.55%, Prec:0.745, Rec:0.745, F1:0.745
+Val   -> Loss: 0.7283, Acc: 94.67%, Prec:0.948, Rec:0.947, F1:0.947
+Train E94:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [94/120]  Time: 904.9s  LR: 0.000136526
+Train -> Loss: 0.7117, Acc: 81.73%, Prec:0.817, Rec:0.817, F1:0.817
+Val   -> Loss: 0.7073, Acc: 93.67%, Prec:0.939, Rec:0.937, F1:0.937
+Train E95:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [95/120]  Time: 903.0s  LR: 0.000126708
+Train -> Loss: 0.7445, Acc: 68.00%, Prec:0.680, Rec:0.680, F1:0.680
+Val   -> Loss: 0.7032, Acc: 95.00%, Prec:0.951, Rec:0.950, F1:0.950
+✅ Saved best model (val_acc=95.00%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E96:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [96/120]  Time: 903.5s  LR: 0.000117206
+Train -> Loss: 0.7701, Acc: 74.51%, Prec:0.745, Rec:0.745, F1:0.745
+Val   -> Loss: 0.7069, Acc: 93.00%, Prec:0.932, Rec:0.930, F1:0.930
+Train E97:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [97/120]  Time: 897.3s  LR: 0.000108029
+Train -> Loss: 0.8636, Acc: 82.52%, Prec:0.826, Rec:0.825, F1:0.825
+Val   -> Loss: 0.7140, Acc: 93.00%, Prec:0.934, Rec:0.930, F1:0.930
+Train E98:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [98/120]  Time: 903.7s  LR: 9.91831e-05
+Train -> Loss: 0.7740, Acc: 77.72%, Prec:0.777, Rec:0.777, F1:0.777
+Val   -> Loss: 0.7329, Acc: 93.33%, Prec:0.938, Rec:0.933, F1:0.934
+Train E99:   0%|                                                                                             | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [99/120]  Time: 903.1s  LR: 9.06767e-05
+Train -> Loss: 0.7027, Acc: 80.85%, Prec:0.808, Rec:0.809, F1:0.808
+Val   -> Loss: 0.6910, Acc: 95.00%, Prec:0.953, Rec:0.950, F1:0.950
+Train E100:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [100/120]  Time: 914.3s  LR: 8.25167e-05
+Train -> Loss: 0.7754, Acc: 70.80%, Prec:0.708, Rec:0.708, F1:0.708
+Val   -> Loss: 0.6950, Acc: 92.67%, Prec:0.929, Rec:0.927, F1:0.926
+Train E101:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [101/120]  Time: 901.4s  LR: 7.47102e-05
+Train -> Loss: 0.8240, Acc: 75.68%, Prec:0.757, Rec:0.757, F1:0.757
+Val   -> Loss: 0.6920, Acc: 94.00%, Prec:0.942, Rec:0.940, F1:0.940
+Train E102:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [102/120]  Time: 908.8s  LR: 6.72636e-05
+Train -> Loss: 0.8041, Acc: 80.81%, Prec:0.809, Rec:0.808, F1:0.808
+Val   -> Loss: 0.7007, Acc: 94.67%, Prec:0.949, Rec:0.947, F1:0.947
+Train E103:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [103/120]  Time: 1037.7s  LR: 6.01834e-05
+Train -> Loss: 0.7861, Acc: 80.18%, Prec:0.802, Rec:0.802, F1:0.802
+Val   -> Loss: 0.6847, Acc: 94.67%, Prec:0.949, Rec:0.947, F1:0.947
+Train E104:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [104/120]  Time: 972.4s  LR: 5.34754e-05
+Train -> Loss: 0.8721, Acc: 71.63%, Prec:0.717, Rec:0.716, F1:0.716
+Val   -> Loss: 0.6925, Acc: 95.33%, Prec:0.956, Rec:0.953, F1:0.954
+✅ Saved best model (val_acc=95.33%) to C:\SoundModel\artifacts\gtzan_ultimate\best_ultimate.pth
+Train E105:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [105/120]  Time: 894.4s  LR: 4.71455e-05
+Train -> Loss: 0.8033, Acc: 73.34%, Prec:0.733, Rec:0.733, F1:0.733
+Val   -> Loss: 0.6982, Acc: 94.33%, Prec:0.946, Rec:0.943, F1:0.943
+Train E106:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [106/120]  Time: 942.2s  LR: 4.11988e-05
+Train -> Loss: 0.7732, Acc: 73.47%, Prec:0.735, Rec:0.735, F1:0.735
+Val   -> Loss: 0.7061, Acc: 93.67%, Prec:0.940, Rec:0.937, F1:0.937
+Train E107:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [107/120]  Time: 1888.2s  LR: 3.56406e-05
+Train -> Loss: 0.7424, Acc: 79.31%, Prec:0.793, Rec:0.793, F1:0.793
+Val   -> Loss: 0.6994, Acc: 95.00%, Prec:0.953, Rec:0.950, F1:0.950
+Train E108:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [108/120]  Time: 1079.4s  LR: 3.04754e-05
+Train -> Loss: 0.7339, Acc: 73.88%, Prec:0.739, Rec:0.739, F1:0.739
+Val   -> Loss: 0.6917, Acc: 94.33%, Prec:0.946, Rec:0.943, F1:0.943
+Train E109:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [109/120]  Time: 1504.8s  LR: 2.57076e-05
+Train -> Loss: 0.7885, Acc: 70.50%, Prec:0.705, Rec:0.705, F1:0.705
+Val   -> Loss: 0.6952, Acc: 94.33%, Prec:0.946, Rec:0.943, F1:0.943
+Train E110:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [110/120]  Time: 865.8s  LR: 2.13413e-05
+Train -> Loss: 0.7810, Acc: 61.70%, Prec:0.617, Rec:0.617, F1:0.617
+Val   -> Loss: 0.6922, Acc: 95.00%, Prec:0.953, Rec:0.950, F1:0.950
+Train E111:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [111/120]  Time: 909.2s  LR: 1.73801e-05
+Train -> Loss: 0.8811, Acc: 64.79%, Prec:0.648, Rec:0.648, F1:0.648
+Val   -> Loss: 0.6857, Acc: 94.33%, Prec:0.946, Rec:0.943, F1:0.943
+Train E112:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [112/120]  Time: 1181.8s  LR: 1.38275e-05
+Train -> Loss: 0.7739, Acc: 80.48%, Prec:0.805, Rec:0.805, F1:0.805
+Val   -> Loss: 0.6863, Acc: 95.33%, Prec:0.956, Rec:0.953, F1:0.953
+Train E113:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [113/120]  Time: 24567.2s  LR: 1.06864e-05
+Train -> Loss: 0.8027, Acc: 74.72%, Prec:0.747, Rec:0.747, F1:0.747
+Val   -> Loss: 0.6910, Acc: 95.00%, Prec:0.953, Rec:0.950, F1:0.950
+Train E114:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [114/120]  Time: 856.7s  LR: 7.95946e-06
+Train -> Loss: 0.8471, Acc: 70.00%, Prec:0.700, Rec:0.700, F1:0.700
+Val   -> Loss: 0.6832, Acc: 94.67%, Prec:0.950, Rec:0.947, F1:0.947
+Train E115:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [115/120]  Time: 888.5s  LR: 5.64901e-06
+Train -> Loss: 0.7537, Acc: 75.68%, Prec:0.757, Rec:0.757, F1:0.757
+Val   -> Loss: 0.6852, Acc: 95.00%, Prec:0.953, Rec:0.950, F1:0.950
+Train E116:   0%|                                                                                            | 0/75 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Eval:   0%|                                                                                                  | 0/10 [00:00<?, ?it/s]C:\Users\arnav\AppData\Roaming\Python\Python313\site-packages\torch\utils\data\dataloader.py:666: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+Epoch [116/120]  Time: 1316.6s  LR: 3.757e-06
+Train -> Loss: 0.7224, Acc: 83.19%, Prec:0.832, Rec:0.832, F1:0.832
+Val   -> Loss: 0.6934, Acc: 93.67%, Prec:0.940, Rec:0.937, F1:0.937
+🛑 Early stopping.
+Saved metrics CSV to C:\SoundModel\artifacts\gtzan_ultimate\metrics_history.csv
+Confusion matrix (rows=true, cols=pred):
+[[28  0  0  0  0  0  1  0  0  1]
+ [ 0 29  0  0  0  1  0  0  0  0]
+ [ 0  1 28  0  0  1  0  0  0  0]
+ [ 0  0  0 27  0  0  0  2  0  1]
+ [ 1  0  0  0 29  0  0  0  0  0]
+ [ 0  2  0  0  0 28  0  0  0  0]
+ [ 0  0  0  0  0  0 30  0  0  0]
+ [ 0  0  0  0  0  0  0 30  0  0]
+ [ 0  0  0  0  1  1  0  2 26  0]
+ [ 2  0  0  0  1  0  1  0  0 26]]
+Classification report:
+               precision    recall  f1-score   support
+
+       blues       0.90      0.93      0.92        30
+   classical       0.91      0.97      0.94        30
+     country       1.00      0.93      0.97        30
+       disco       1.00      0.90      0.95        30
+      hiphop       0.94      0.97      0.95        30
+        jazz       0.90      0.93      0.92        30
+       metal       0.94      1.00      0.97        30
+         pop       0.88      1.00      0.94        30
+      reggae       1.00      0.87      0.93        30
+        rock       0.93      0.87      0.90        30
+
+    accuracy                           0.94       300
+   macro avg       0.94      0.94      0.94       300
+weighted avg       0.94      0.94      0.94       300
+
+Artifacts saved to C:\SoundModel\artifacts\gtzan_ultimate
+Training complete. Best val acc: 95.33% at epoch 104
