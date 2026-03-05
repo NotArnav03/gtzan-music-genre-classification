@@ -24,9 +24,14 @@ import sys
 BASE_DIR = "/content/drive/MyDrive/music_genre_classification"
 os.makedirs(BASE_DIR, exist_ok=True)
 
-# Clone repo or copy src files
+# Clone repo or update if already exists
 REPO_DIR = f"{BASE_DIR}/repo"
-if not os.path.exists(f"{REPO_DIR}/src/config.py"):
+if os.path.exists(f"{REPO_DIR}/src/config.py"):
+    # Update existing repo to get latest fixes
+    print("📂 Updating existing repo...")
+    os.system(f"cd {REPO_DIR} && git pull origin main")
+else:
+    print("📥 Cloning repo...")
     os.system(f"git clone https://github.com/NotArnav03/gtzan-music-genre-classification.git {REPO_DIR}")
 
 sys.path.insert(0, f"{REPO_DIR}/src")
