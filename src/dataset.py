@@ -100,13 +100,24 @@ class MultiDatasetBuilder:
         records = []
 
         # GTZAN structure: gtzan/genres/<genre>/<genre>.<id>.wav
-        genres_dir = gtzan_path / "genres"
-        if not genres_dir.exists():
-            # Try alternative structure
-            genres_dir = gtzan_path
-            if not any(genres_dir.iterdir()):
-                print(f"  [ERROR] No genres found in {gtzan_dir}")
-                return pd.DataFrame()
+        # Also check genres_original (Kaggle version)
+        genres_dir = None
+        for candidate in ["genres", "genres_original", "."]:
+            test_dir = gtzan_path / candidate if candidate != "." else gtzan_path
+            if test_dir.exists() and any(test_dir.iterdir()):
+                # Check if subdirectories contain audio files
+                for sub in test_dir.iterdir():
+                    if sub.is_dir() and (list(sub.glob("*.wav")) or list(sub.glob("*.au"))):
+                        genres_dir = test_dir
+                        break
+            if genres_dir:
+                break
+
+        if genres_dir is None:
+            print(f"  [ERROR] No genres found in {gtzan_dir}")
+            return pd.DataFrame()
+
+        print(f"  [INFO] Using genres directory: {genres_dir}")
 
         for genre_dir in sorted(genres_dir.iterdir()):
             if not genre_dir.is_dir():
@@ -116,7 +127,12 @@ class MultiDatasetBuilder:
             if mapped is None:
                 continue
 
-            for audio_file in sorted(genre_dir.glob("*.wav")):
+            # Prefer .wav, fall back to .au
+            audio_files = sorted(genre_dir.glob("*.wav"))
+            if not audio_files:
+                audio_files = sorted(genre_dir.glob("*.au"))
+
+            for audio_file in audio_files:
                 # Extract artist from filename if possible
                 # GTZAN format: genre.NNNNN.wav
                 parts = audio_file.stem.split(".")
@@ -134,7 +150,10 @@ class MultiDatasetBuilder:
                 })
 
         df = pd.DataFrame(records)
-        print(f"  Found {len(df)} tracks across {df['genre'].nunique()} genres")
+        if len(df) > 0:
+            print(f"  Found {len(df)} tracks across {df['genre'].nunique()} genres")
+        else:
+            print("  [WARN] No GTZAN tracks found")
         return df
 
     def build_fma_manifest(self, fma_dir: str) -> pd.DataFrame:
@@ -157,52 +176,90 @@ class MultiDatasetBuilder:
 
         if tracks_csv is not None:
             print(f"  [INFO] Found metadata at {tracks_csv}")
-            # Load FMA metadata (multi-level header)
-            tracks = pd.read_csv(tracks_csv, index_col=0, header=[0, 1])
-            for track_id, row in tracks.iterrows():
-                try:
-                    genre = row[("track", "genre_top")]
-                    if pd.isna(genre) or not isinstance(genre, str):
-                        continue
-                    genre = genre.lower().strip()
-                except (KeyError, AttributeError):
-                    continue
+            try:
+                # FMA tracks.csv has 2-row multi-level header
+                tracks = pd.read_csv(tracks_csv, index_col=0, header=[0, 1])
+                cols = [str(c) for c in tracks.columns.tolist()[:10]]
+                print(f"  [DEBUG] First 10 columns: {cols}")
 
-                mapped = FMA_GENRE_MAP.get(genre)
-                if mapped is None:
-                    continue
+                # Find the genre column — handle different header formats
+                genre_col = None
+                artist_col = None
+                for col in tracks.columns:
+                    col_str = str(col).lower()
+                    if 'genre_top' in col_str or col == ('track', 'genre_top'):
+                        genre_col = col
+                    if 'artist' in col_str and 'name' in col_str:
+                        artist_col = col
 
-                # Construct audio path — try multiple locations
-                tid = str(track_id).zfill(6)
-                audio_file = None
-                for audio_candidate in [
-                    fma_path / "fma_small" / tid[:3] / f"{tid}.mp3",
-                    fma_path / tid[:3] / f"{tid}.mp3",
-                ]:
-                    if audio_candidate.exists():
-                        audio_file = audio_candidate
-                        break
+                if genre_col is None:
+                    # Try flat header
+                    tracks_flat = pd.read_csv(tracks_csv, index_col=0, header=0)
+                    flat_cols = [str(c) for c in tracks_flat.columns.tolist()]
+                    print(f"  [DEBUG] Flat columns: {flat_cols[:15]}")
+                    for col in tracks_flat.columns:
+                        if 'genre_top' in str(col).lower():
+                            genre_col = col
+                            tracks = tracks_flat
+                            break
 
-                if audio_file is None:
-                    continue
+                if genre_col is None:
+                    print(f"  [WARN] Could not find genre column in tracks.csv")
+                    print(f"  [DEBUG] Available columns: {[str(c) for c in tracks.columns.tolist()[:20]]}")
+                else:
+                    print(f"  [INFO] Using genre column: {genre_col}")
+                    found_audio = 0
+                    for track_id, row in tracks.iterrows():
+                        try:
+                            genre = row[genre_col]
+                            if pd.isna(genre) or not isinstance(genre, str):
+                                continue
+                            genre = genre.lower().strip()
+                        except (KeyError, AttributeError, TypeError):
+                            continue
 
-                try:
-                    artist = str(row[("artist", "name")])
-                except (KeyError, AttributeError):
-                    artist = f"fma_{track_id}"
+                        mapped = FMA_GENRE_MAP.get(genre)
+                        if mapped is None:
+                            continue
 
-                feat_path = self.features_dir / f"fma_{tid}.npy"
+                        # Construct audio path — try multiple locations
+                        tid = str(track_id).zfill(6)
+                        audio_file = None
+                        for audio_candidate in [
+                            fma_path / "fma_small" / tid[:3] / f"{tid}.mp3",
+                            fma_path / tid[:3] / f"{tid}.mp3",
+                        ]:
+                            if audio_candidate.exists():
+                                audio_file = audio_candidate
+                                break
 
-                records.append({
-                    "audio_path": str(audio_file),
-                    "feature_path": str(feat_path),
-                    "genre": mapped,
-                    "dataset": "fma",
-                    "artist": f"fma_{artist}",
-                    "filename": f"{tid}.mp3",
-                })
+                        if audio_file is None:
+                            continue
+
+                        found_audio += 1
+                        try:
+                            artist = str(row[artist_col]) if artist_col else f"fma_{track_id}"
+                        except (KeyError, AttributeError, TypeError):
+                            artist = f"fma_{track_id}"
+
+                        feat_path = self.features_dir / f"fma_{tid}.npy"
+
+                        records.append({
+                            "audio_path": str(audio_file),
+                            "feature_path": str(feat_path),
+                            "genre": mapped,
+                            "dataset": "fma",
+                            "artist": f"fma_{artist}",
+                            "filename": f"{tid}.mp3",
+                        })
+                    print(f"  [INFO] Found {found_audio} audio files with matching metadata")
+
+            except Exception as e:
+                print(f"  [ERROR] Failed to parse FMA metadata: {e}")
+                import traceback
+                traceback.print_exc()
         else:
-            # No metadata → skip FMA (can't classify without genre labels)
+            # No metadata → skip FMA
             print("  [WARN] No tracks.csv found anywhere in FMA directory.")
             print("  [WARN] FMA requires metadata for genre labels. Skipping FMA.")
             print("  [WARN] Download metadata: wget https://os.unil.cloud.switch.ch/fma/fma_metadata.zip")
