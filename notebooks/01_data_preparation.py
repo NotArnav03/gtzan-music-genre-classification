@@ -59,21 +59,65 @@ print(f"Audio config: SR={audio_cfg.sample_rate}, n_mels={audio_cfg.n_mels}, "
 GTZAN_DIR = data_cfg.gtzan_dir
 os.makedirs(GTZAN_DIR, exist_ok=True)
 
-if not os.path.exists(f"{GTZAN_DIR}/genres"):
-    print("📥 Downloading GTZAN dataset...")
-    os.system(f"""
-    cd /tmp && \
-    wget -q http://opihi.cs.uvic.ca/sound/genres.tar.gz && \
-    tar -xzf genres.tar.gz -C {GTZAN_DIR} && \
-    rm genres.tar.gz
-    """)
-    print("✅ GTZAN downloaded!")
-else:
-    print("✅ GTZAN already exists")
+import glob, subprocess
 
-# Count files
-import glob
 gtzan_files = glob.glob(f"{GTZAN_DIR}/genres/**/*.wav", recursive=True)
+if len(gtzan_files) == 0:
+    print("📥 Downloading GTZAN dataset...")
+    # Try multiple sources (fallback chain)
+    success = False
+
+    # Source 1: HuggingFace mirror
+    if not success:
+        print("   Trying HuggingFace mirror...")
+        ret = os.system(f"""
+        wget -q --show-progress https://huggingface.co/datasets/marsyas/gtzan/resolve/main/data/genres.tar.gz -O /tmp/genres.tar.gz && \
+        tar -xzf /tmp/genres.tar.gz -C {GTZAN_DIR} && \
+        rm /tmp/genres.tar.gz
+        """)
+        gtzan_files = glob.glob(f"{GTZAN_DIR}/genres/**/*.wav", recursive=True)
+        if len(gtzan_files) > 0:
+            success = True
+
+    # Source 2: Kaggle via direct URL
+    if not success:
+        print("   Trying Kaggle mirror via gdown...")
+        os.system("pip install -q gdown")
+        ret = os.system(f"""
+        gdown --fuzzy "https://drive.google.com/uc?id=1oQBBMh-gMPMi6_MFv7r_weoFpMKSOgOQ" -O /tmp/gtzan.zip && \
+        unzip -q /tmp/gtzan.zip -d /tmp/gtzan_raw && \
+        rm /tmp/gtzan.zip
+        """)
+        # Kaggle version has genres_original folder
+        import shutil
+        for src_dir in ["/tmp/gtzan_raw/Data/genres_original", "/tmp/gtzan_raw/genres_original", "/tmp/gtzan_raw/genres"]:
+            if os.path.exists(src_dir):
+                dest = f"{GTZAN_DIR}/genres"
+                if os.path.exists(dest):
+                    shutil.rmtree(dest)
+                shutil.move(src_dir, dest)
+                success = True
+                break
+
+    # Source 3: Original (often down)
+    if not success:
+        print("   Trying original source...")
+        os.system(f"""
+        wget -q http://opihi.cs.uvic.ca/sound/genres.tar.gz -O /tmp/genres.tar.gz && \
+        tar -xzf /tmp/genres.tar.gz -C {GTZAN_DIR} && \
+        rm /tmp/genres.tar.gz
+        """)
+
+    gtzan_files = glob.glob(f"{GTZAN_DIR}/genres/**/*.wav", recursive=True)
+    if len(gtzan_files) > 0:
+        print(f"✅ GTZAN downloaded! ({len(gtzan_files)} files)")
+    else:
+        print("⚠️ GTZAN download failed from all sources.")
+        print("   Please download manually from: https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification")
+        print(f"   Extract 'genres' folder to: {GTZAN_DIR}/genres/")
+else:
+    print(f"✅ GTZAN already exists ({len(gtzan_files)} files)")
+
 print(f"   Total GTZAN audio files: {len(gtzan_files)}")
 
 # %% [markdown]
@@ -84,25 +128,43 @@ print(f"   Total GTZAN audio files: {len(gtzan_files)}")
 FMA_DIR = data_cfg.fma_dir
 os.makedirs(FMA_DIR, exist_ok=True)
 
-if not os.path.exists(f"{FMA_DIR}/fma_small") and not os.path.exists(f"{FMA_DIR}/000"):
+# Check for audio files
+fma_audio_exists = os.path.exists(f"{FMA_DIR}/fma_small") or os.path.exists(f"{FMA_DIR}/000")
+if not fma_audio_exists:
     print("📥 Downloading FMA-small dataset...")
     print("   (This may take a while — ~7.2 GB)")
     os.system(f"""
     cd /tmp && \
-    wget -q https://os.unil.cloud.switch.ch/fma/fma_small.zip && \
+    wget -q --show-progress https://os.unil.cloud.switch.ch/fma/fma_small.zip && \
     unzip -q fma_small.zip -d {FMA_DIR} && \
     rm fma_small.zip
     """)
-    # Also download metadata
+    print("✅ FMA-small audio downloaded!")
+else:
+    print("✅ FMA-small audio already exists")
+
+# Download metadata separately (tracks.csv is essential)
+fma_meta_found = False
+for candidate in [f"{FMA_DIR}/tracks.csv", f"{FMA_DIR}/fma_metadata/tracks.csv"]:
+    if os.path.exists(candidate):
+        fma_meta_found = True
+        break
+
+if not fma_meta_found:
+    print("📥 Downloading FMA metadata...")
     os.system(f"""
     cd /tmp && \
-    wget -q https://os.unil.cloud.switch.ch/fma/fma_metadata.zip && \
+    wget -q --show-progress https://os.unil.cloud.switch.ch/fma/fma_metadata.zip && \
     unzip -q -o fma_metadata.zip -d {FMA_DIR} && \
     rm fma_metadata.zip
     """)
-    print("✅ FMA-small downloaded!")
+    # Move tracks.csv to expected location if in subdirectory
+    if os.path.exists(f"{FMA_DIR}/fma_metadata/tracks.csv") and not os.path.exists(f"{FMA_DIR}/tracks.csv"):
+        import shutil
+        shutil.copy2(f"{FMA_DIR}/fma_metadata/tracks.csv", f"{FMA_DIR}/tracks.csv")
+    print("✅ FMA metadata downloaded!")
 else:
-    print("✅ FMA-small already exists")
+    print("✅ FMA metadata already exists")
 
 # %% [markdown]
 # ### MagnaTagATune Dataset

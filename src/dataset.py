@@ -144,14 +144,27 @@ class MultiDatasetBuilder:
         records = []
 
         # FMA structure: fma_small/<track_id_prefix>/<track_id>.mp3
-        # Metadata in tracks.csv
-        tracks_csv = fma_path / "tracks.csv"
-        if tracks_csv.exists():
-            # Load FMA metadata
+        # Metadata in tracks.csv (may be in subdirectory after extraction)
+        tracks_csv = None
+        for candidate in [
+            fma_path / "tracks.csv",
+            fma_path / "fma_metadata" / "tracks.csv",
+            fma_path / "metadata" / "tracks.csv",
+        ]:
+            if candidate.exists():
+                tracks_csv = candidate
+                break
+
+        if tracks_csv is not None:
+            print(f"  [INFO] Found metadata at {tracks_csv}")
+            # Load FMA metadata (multi-level header)
             tracks = pd.read_csv(tracks_csv, index_col=0, header=[0, 1])
             for track_id, row in tracks.iterrows():
                 try:
-                    genre = row[("track", "genre_top")].lower().strip()
+                    genre = row[("track", "genre_top")]
+                    if pd.isna(genre) or not isinstance(genre, str):
+                        continue
+                    genre = genre.lower().strip()
                 except (KeyError, AttributeError):
                     continue
 
@@ -159,13 +172,19 @@ class MultiDatasetBuilder:
                 if mapped is None:
                     continue
 
-                # Construct audio path
+                # Construct audio path — try multiple locations
                 tid = str(track_id).zfill(6)
-                audio_file = fma_path / "fma_small" / tid[:3] / f"{tid}.mp3"
-                if not audio_file.exists():
-                    audio_file = fma_path / tid[:3] / f"{tid}.mp3"
-                    if not audio_file.exists():
-                        continue
+                audio_file = None
+                for audio_candidate in [
+                    fma_path / "fma_small" / tid[:3] / f"{tid}.mp3",
+                    fma_path / tid[:3] / f"{tid}.mp3",
+                ]:
+                    if audio_candidate.exists():
+                        audio_file = audio_candidate
+                        break
+
+                if audio_file is None:
+                    continue
 
                 try:
                     artist = str(row[("artist", "name")])
@@ -183,24 +202,16 @@ class MultiDatasetBuilder:
                     "filename": f"{tid}.mp3",
                 })
         else:
-            # Fallback: scan directory structure
-            print("  [INFO] No tracks.csv found, scanning directories...")
-            for subdir in sorted(fma_path.iterdir()):
-                if not subdir.is_dir():
-                    continue
-                for audio_file in sorted(subdir.glob("*.mp3")):
-                    feat_path = self.features_dir / f"fma_{audio_file.stem}.npy"
-                    records.append({
-                        "audio_path": str(audio_file),
-                        "feature_path": str(feat_path),
-                        "genre": "unknown",
-                        "dataset": "fma",
-                        "artist": f"fma_{audio_file.stem}",
-                        "filename": audio_file.name,
-                    })
+            # No metadata → skip FMA (can't classify without genre labels)
+            print("  [WARN] No tracks.csv found anywhere in FMA directory.")
+            print("  [WARN] FMA requires metadata for genre labels. Skipping FMA.")
+            print("  [WARN] Download metadata: wget https://os.unil.cloud.switch.ch/fma/fma_metadata.zip")
 
         df = pd.DataFrame(records)
-        print(f"  Found {len(df)} tracks across {df['genre'].nunique()} genres")
+        if len(df) > 0:
+            print(f"  Found {len(df)} tracks across {df['genre'].nunique()} genres")
+        else:
+            print("  [WARN] No FMA tracks processed")
         return df
 
     def build_mtt_manifest(self, mtt_dir: str) -> pd.DataFrame:
