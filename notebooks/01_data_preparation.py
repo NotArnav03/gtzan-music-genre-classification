@@ -179,31 +179,81 @@ else:
 MTT_DIR = data_cfg.mtt_dir
 os.makedirs(MTT_DIR, exist_ok=True)
 
-if not os.path.exists(f"{MTT_DIR}/annotations.csv") and not os.path.exists(f"{MTT_DIR}/annotations_final.csv"):
-    print("📥 Downloading MagnaTagATune dataset...")
-    print("   (Annotations + audio — this takes a while)")
-    # Download annotations
-    os.system(f"""
-    cd {MTT_DIR} && \
-    wget -q https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset/annotations_final.csv && \
-    mv annotations_final.csv annotations.csv
-    """)
-    # Download audio (3 parts)
-    for part in range(1, 4):
-        part_str = chr(96 + part)  # a, b, c
-        url = f"https://mirg.city.ac.uk/datasets/magnatagatune/mp3.zip.00{part}"
-        print(f"   Downloading part {part}/3...")
-        os.system(f"cd {MTT_DIR} && wget -q {url}")
-    # Combine and extract
-    os.system(f"""
-    cd {MTT_DIR} && \
-    cat mp3.zip.* > mp3.zip && \
-    unzip -q mp3.zip && \
-    rm mp3.zip mp3.zip.*
-    """)
-    print("✅ MagnaTagATune downloaded!")
+# Step 1: Download annotations
+mtt_ann_exists = (
+    os.path.exists(f"{MTT_DIR}/annotations_final.csv") or
+    os.path.exists(f"{MTT_DIR}/annotations.csv")
+)
+if not mtt_ann_exists:
+    print("📥 Downloading MagnaTagATune annotations...")
+    ann_success = False
+
+    # Try multiple annotation sources
+    ann_urls = [
+        "https://mirg.city.ac.uk/datasets/magnatagatune/annotations_final.csv",
+        "https://raw.githubusercontent.com/keunwoochoi/magnatagatune-list/master/annotations_final.csv",
+    ]
+    for url in ann_urls:
+        print(f"   Trying: {url[:60]}...")
+        ret = os.system(f'wget -q --show-progress -O {MTT_DIR}/annotations_final.csv "{url}"')
+        # Check if file is valid (not empty/error page)
+        if os.path.exists(f"{MTT_DIR}/annotations_final.csv"):
+            size = os.path.getsize(f"{MTT_DIR}/annotations_final.csv")
+            if size > 1_000_000:  # annotations should be ~21MB
+                ann_success = True
+                print(f"   ✅ Annotations downloaded ({size // 1_000_000}MB)")
+                break
+            else:
+                os.remove(f"{MTT_DIR}/annotations_final.csv")
+                print(f"   ❌ File too small ({size} bytes), trying next source...")
+
+    if not ann_success:
+        print("   ⚠️ Could not download annotations from any source.")
+        print("   Manual download: https://mirg.city.ac.uk/datasets/magnatagatune/annotations_final.csv")
 else:
-    print("✅ MagnaTagATune already exists")
+    print("✅ MagnaTagATune annotations already exist")
+
+# Step 2: Download audio (3 split zip files)
+# Check if audio directories already exist
+import glob as _glob
+mtt_mp3_files = _glob.glob(f"{MTT_DIR}/**/*.mp3", recursive=True)
+if len(mtt_mp3_files) < 100:
+    print("📥 Downloading MagnaTagATune audio...")
+    print("   (3 parts, ~200MB each — this takes a while)")
+
+    # Clean up any partial downloads
+    os.system(f"rm -f {MTT_DIR}/mp3.zip*")
+
+    audio_base_url = "https://mirg.city.ac.uk/datasets/magnatagatune"
+    all_parts_ok = True
+    for part in range(1, 4):
+        part_file = f"mp3.zip.00{part}"
+        if os.path.exists(f"{MTT_DIR}/{part_file}"):
+            print(f"   Part {part}/3 already downloaded")
+            continue
+        print(f"   Downloading part {part}/3...")
+        ret = os.system(f'cd {MTT_DIR} && wget -q --show-progress {audio_base_url}/{part_file}')
+        if not os.path.exists(f"{MTT_DIR}/{part_file}"):
+            print(f"   ❌ Failed to download {part_file}")
+            all_parts_ok = False
+
+    if all_parts_ok:
+        print("   Combining and extracting...")
+        os.system(f"""
+        cd {MTT_DIR} && \
+        cat mp3.zip.001 mp3.zip.002 mp3.zip.003 > mp3_combined.zip && \
+        unzip -q -o mp3_combined.zip && \
+        rm -f mp3_combined.zip mp3.zip.001 mp3.zip.002 mp3.zip.003
+        """)
+
+    mtt_mp3_files = _glob.glob(f"{MTT_DIR}/**/*.mp3", recursive=True)
+    print(f"   Total MTT audio files: {len(mtt_mp3_files)}")
+    if len(mtt_mp3_files) > 0:
+        print("✅ MagnaTagATune audio downloaded!")
+    else:
+        print("⚠️ MagnaTagATune audio extraction may have failed")
+else:
+    print(f"✅ MagnaTagATune audio already exists ({len(mtt_mp3_files)} files)")
 
 # %% [markdown]
 # ## 2. Build Manifests and Extract Features
