@@ -133,10 +133,21 @@ class MultiDatasetBuilder:
                 audio_files = sorted(genre_dir.glob("*.au"))
 
             for audio_file in audio_files:
-                # Extract artist from filename if possible
+                # Skip macOS resource fork files
+                if audio_file.name.startswith("._"):
+                    continue
+
                 # GTZAN format: genre.NNNNN.wav
+                # Use the track NUMBER as the artist proxy, not the genre name
+                # This prevents entire genres from being grouped together
                 parts = audio_file.stem.split(".")
-                artist_id = parts[0] if len(parts) >= 2 else "unknown"
+                if len(parts) >= 2:
+                    track_num = parts[1]  # e.g., "00042"
+                    # Group tracks into pseudo-artists (every 10 tracks = 1 artist)
+                    artist_group = int(track_num) // 10
+                    artist_id = f"{genre_name}_{artist_group}"
+                else:
+                    artist_id = f"{genre_name}_{audio_file.stem}"
 
                 feat_path = self.features_dir / f"gtzan_{audio_file.stem}.npy"
 
@@ -278,52 +289,110 @@ class MultiDatasetBuilder:
         records = []
 
         # MTT structure: annotations.csv + audio in subdirectories
-        annotations = mtt_path / "annotations.csv"
-        clip_info = mtt_path / "clip_info_final.csv"
+        # Try multiple annotation file names
+        annotations = None
+        for ann_name in ["annotations_final.csv", "annotations.csv"]:
+            candidate = mtt_path / ann_name
+            if candidate.exists():
+                annotations = candidate
+                break
 
-        if annotations.exists():
-            ann_df = pd.read_csv(annotations, sep="\t") if annotations.suffix == ".csv" else pd.read_csv(annotations)
+        if annotations is not None:
+            print(f"  [INFO] Found annotations at {annotations}")
+            try:
+                # Try tab-separated first, then comma
+                try:
+                    ann_df = pd.read_csv(annotations, sep="\t")
+                    if len(ann_df.columns) < 5:
+                        ann_df = pd.read_csv(annotations, sep=",")
+                except:
+                    ann_df = pd.read_csv(annotations, sep=",")
 
-            # MTT has binary tag columns
-            for idx, row in ann_df.iterrows():
-                # Find genre tags that are active
-                mapped_genre = None
-                max_score = 0
+                print(f"  [DEBUG] Annotations shape: {ann_df.shape}")
+                print(f"  [DEBUG] First 10 columns: {list(ann_df.columns[:10])}")
 
+                # Find which MTT_TAG_MAP tags exist in the columns
+                available_tags = {}
                 for tag, unified in MTT_TAG_MAP.items():
-                    if tag in row and row[tag] > max_score:
-                        max_score = row[tag]
-                        mapped_genre = unified
+                    if tag in ann_df.columns:
+                        available_tags[tag] = unified
+                print(f"  [INFO] Found {len(available_tags)} matching genre tags: {list(available_tags.keys())}")
 
-                if mapped_genre is None or max_score == 0:
-                    continue
+                if len(available_tags) == 0:
+                    # Try case-insensitive matching
+                    col_lower = {c.lower().strip(): c for c in ann_df.columns}
+                    for tag, unified in MTT_TAG_MAP.items():
+                        if tag.lower() in col_lower:
+                            available_tags[tag] = unified
+                    print(f"  [INFO] Case-insensitive match found {len(available_tags)} tags")
 
-                # Get audio path
-                if "mp3_path" in row:
-                    audio_file = mtt_path / row["mp3_path"]
-                elif "clip_id" in row:
-                    clip_id = str(row["clip_id"])
-                    # MTT audio: <prefix>/<clip_id>.mp3
-                    audio_file = mtt_path / f"{clip_id[:1]}/{clip_id}.mp3"
+                # Find the mp3 path column
+                path_col = None
+                for candidate_col in ["mp3_path", "clip_id", "file", "filename", "path"]:
+                    if candidate_col in ann_df.columns:
+                        path_col = candidate_col
+                        break
+                    # Case-insensitive
+                    for c in ann_df.columns:
+                        if candidate_col in c.lower():
+                            path_col = c
+                            break
+                    if path_col:
+                        break
+
+                print(f"  [INFO] Path column: {path_col}")
+
+                if available_tags and path_col:
+                    for idx, row in ann_df.iterrows():
+                        # Find best matching genre tag
+                        mapped_genre = None
+                        max_score = 0
+
+                        for tag, unified in available_tags.items():
+                            try:
+                                val = float(row[tag]) if tag in row.index else 0
+                                if val > max_score:
+                                    max_score = val
+                                    mapped_genre = unified
+                            except (ValueError, TypeError):
+                                continue
+
+                        if mapped_genre is None or max_score == 0:
+                            continue
+
+                        # Get audio path
+                        audio_rel = str(row[path_col])
+                        audio_file = mtt_path / audio_rel
+                        if not audio_file.exists():
+                            # Try without leading directory
+                            audio_file = mtt_path / Path(audio_rel).name
+                            if not audio_file.exists():
+                                continue
+
+                        feat_name = f"mtt_{audio_file.stem}"
+                        feat_path = self.features_dir / f"{feat_name}.npy"
+
+                        records.append({
+                            "audio_path": str(audio_file),
+                            "feature_path": str(feat_path),
+                            "genre": mapped_genre,
+                            "dataset": "mtt",
+                            "artist": f"mtt_{idx}",
+                            "filename": audio_file.name,
+                        })
                 else:
-                    continue
+                    if not available_tags:
+                        print("  [WARN] No matching genre tags found in annotations")
+                    if not path_col:
+                        print("  [WARN] No audio path column found in annotations")
 
-                if not audio_file.exists():
-                    continue
-
-                feat_name = f"mtt_{audio_file.stem}"
-                feat_path = self.features_dir / f"{feat_name}.npy"
-
-                records.append({
-                    "audio_path": str(audio_file),
-                    "feature_path": str(feat_path),
-                    "genre": mapped_genre,
-                    "dataset": "mtt",
-                    "artist": f"mtt_{idx}",  # MTT doesn't have clean artist info
-                    "filename": audio_file.name,
-                })
+            except Exception as e:
+                print(f"  [ERROR] Failed to parse MTT annotations: {e}")
+                import traceback
+                traceback.print_exc()
         else:
             print(f"  [WARN] No annotations found in {mtt_dir}")
+            print(f"  [DEBUG] Files in MTT dir: {[f.name for f in mtt_path.iterdir()][:20]}")
 
         df = pd.DataFrame(records)
         if len(df) > 0:
@@ -369,47 +438,59 @@ class MultiDatasetBuilder:
         artist_stratified: bool = True
     ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         """
-        Create train/val/test splits with artist stratification.
-        Ensures no artist appears in multiple splits (prevents data leakage).
+        Create train/val/test splits.
+        Uses GENRE-FIRST stratification: ensures every genre appears in every split.
+        Within each genre, splits by artist groups to minimize data leakage.
         """
         print(f"\n📊 Creating splits (train={train_ratio}, val={val_ratio}, test={test_ratio})...")
 
-        if artist_stratified:
-            # Group by artist, then split artist groups
-            artists = manifest["artist"].unique()
-            np.random.shuffle(artists)
+        train_dfs, val_dfs, test_dfs = [], [], []
 
-            n_train = int(len(artists) * train_ratio)
-            n_val = int(len(artists) * val_ratio)
+        for genre in sorted(manifest["genre"].unique()):
+            genre_df = manifest[manifest["genre"] == genre]
 
-            train_artists = set(artists[:n_train])
-            val_artists = set(artists[n_train:n_train + n_val])
-            test_artists = set(artists[n_train + n_val:])
+            if artist_stratified and "artist" in genre_df.columns:
+                # Split by artist groups within this genre
+                artists = genre_df["artist"].unique()
+                np.random.shuffle(artists)
 
-            train_df = manifest[manifest["artist"].isin(train_artists)].copy()
-            val_df = manifest[manifest["artist"].isin(val_artists)].copy()
-            test_df = manifest[manifest["artist"].isin(test_artists)].copy()
-        else:
-            # Simple stratified split by genre
-            train_dfs, val_dfs, test_dfs = [], [], []
-            for genre in manifest["genre"].unique():
-                genre_df = manifest[manifest["genre"] == genre].sample(frac=1.0)
+                n_train = max(1, int(len(artists) * train_ratio))
+                n_val = max(1, int(len(artists) * val_ratio))
+
+                train_artists = set(artists[:n_train])
+                val_artists = set(artists[n_train:n_train + n_val])
+                test_artists = set(artists[n_train + n_val:])
+
+                # Ensure test set is not empty
+                if len(test_artists) == 0 and len(artists) >= 3:
+                    test_artists = {artists[-1]}
+                    val_artists.discard(artists[-1])
+
+                genre_train = genre_df[genre_df["artist"].isin(train_artists)]
+                genre_val = genre_df[genre_df["artist"].isin(val_artists)]
+                genre_test = genre_df[genre_df["artist"].isin(test_artists)]
+            else:
+                # Simple random split
+                genre_df = genre_df.sample(frac=1.0, random_state=42)
                 n = len(genre_df)
-                n_train = int(n * train_ratio)
-                n_val = int(n * val_ratio)
+                n_train = max(1, int(n * train_ratio))
+                n_val = max(1, int(n * val_ratio))
 
-                train_dfs.append(genre_df.iloc[:n_train])
-                val_dfs.append(genre_df.iloc[n_train:n_train + n_val])
-                test_dfs.append(genre_df.iloc[n_train + n_val:])
+                genre_train = genre_df.iloc[:n_train]
+                genre_val = genre_df.iloc[n_train:n_train + n_val]
+                genre_test = genre_df.iloc[n_train + n_val:]
 
-            train_df = pd.concat(train_dfs).reset_index(drop=True)
-            val_df = pd.concat(val_dfs).reset_index(drop=True)
-            test_df = pd.concat(test_dfs).reset_index(drop=True)
+            train_dfs.append(genre_train)
+            val_dfs.append(genre_val)
+            test_dfs.append(genre_test)
 
-        print(f"  Train: {len(train_df)} | Val: {len(val_df)} | Test: {len(test_df)}")
-        for split_name, split_df in [("Train", train_df), ("Val", val_df), ("Test", test_df)]:
-            dist = split_df["genre"].value_counts().to_dict()
-            print(f"  {split_name} distribution: {dict(sorted(dist.items()))}")
+            print(f"  {genre:>12s}: train={len(genre_train)}, val={len(genre_val)}, test={len(genre_test)}")
+
+        train_df = pd.concat(train_dfs).reset_index(drop=True)
+        val_df = pd.concat(val_dfs).reset_index(drop=True)
+        test_df = pd.concat(test_dfs).reset_index(drop=True)
+
+        print(f"\n  Total Train: {len(train_df)} | Val: {len(val_df)} | Test: {len(test_df)}")
 
         return train_df, val_df, test_df
 
